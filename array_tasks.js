@@ -31,16 +31,20 @@ var arrayTasks = {
 		return counter;
 	},
 
-	// findDuplicates: function (arr) {
-	// 	var duplicateArray = [];
-	// 	for(i = 0; i < arr.length; i++){
+	findDuplicates: function (arr) {
+		var returnArray = [];
+		for(var i = 0; i < arr.length - 1; i++){
+			if(arr[i + 1] === arr[i]) {
+				if (!returnArray.includes(arr[i])){
+					returnArray.push(arr[i]);
+				}
+			}
+		}
+		console.log("RETURN ARRAY: ", returnArray);
+		return returnArray;
+	},
 
-	// 	}
-	// 	console.log("Duplicate Array: ", duplicateArray);
-	// 	return duplicateArray;
-	// },
 
-// should remove an item from array return new array
 	removeAndClone: function (arr, valueToRemove) {
 		var newArray = [];
 		for(item of arr){
@@ -62,7 +66,7 @@ var arrayTasks = {
 	// 	return indexArray;
 	// },
 
-//add all even numbers squared
+
 	sumOfAllEvenNumbersSquared: function (arr) {
 		var evenArray = [];
 		var counter = 0;
@@ -71,13 +75,13 @@ var arrayTasks = {
 				evenArray.push(num);
 			}
 		}
-		console.log("evenArray array: ", evenArray);
+		 console.log("evenArray array: ", evenArray);
 		var squaredArray = this.square(evenArray);
 		console.log("Squared Array: ", squaredArray);
 		for(var num of squaredArray){
 			counter += num;
 		}
-		console.log("My COUNTER", counter);
+		 console.log("My COUNTER", counter);
 		return counter;
 	}
 
