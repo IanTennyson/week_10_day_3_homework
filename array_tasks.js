@@ -8,32 +8,78 @@ var arrayTasks = {
 	},
 
 	insertAt: function (arr, itemToAdd, index) {
-		arr.insert(index, itemToAdd);
+		arr.splice(index, 0, itemToAdd);
+		// console.log("My array: ", arr)
+		return arr;
 	},
 //return every item squared
-	// square: function (arr) {
-		
-	// },
+	square: function (arr) {
+		var squaredArr = [];
+		for(var num of arr){
+			squaredArr.push(num * num)
+		}
+		// console.log("Squared Array: ", squaredArr);
+		return squaredArr;
+	},
 
-	// sum: function (arr) {
-		
-	// },
+	sum: function (arr) {
+		var counter = 0
+		for(var num of arr){
+			counter += num;
+		}
+		// console.log("My counter: ", counter)
+		return counter;
+	},
 
 	// findDuplicates: function (arr) {
-		
+	// 	var duplicateArray = [];
+	// 	for(i = 0; i < arr.length; i++){
+
+	// 	}
+	// 	console.log("Duplicate Array: ", duplicateArray);
+	// 	return duplicateArray;
 	// },
-//should remove an item from array return new array
-	// removeAndClone: function (arr, valueToRemove) {
-		
-	// },
-//
+
+// should remove an item from array return new array
+	removeAndClone: function (arr, valueToRemove) {
+		var newArray = [];
+		for(item of arr){
+			if(item !== valueToRemove){
+				newArray.push(item);
+			}
+		}
+		return newArray;
+	},
+
 	// findIndexesOf: function (arr, itemToFind) {
-		
+	// 	var indexArray = []
+	// 	for(var item of arr){
+	// 		if(item === itemToFind){
+	// 			indexArray.push(arr.indexOf(item))
+	// 		}
+	// 	}
+	// 	console.log("My indexArray: ", indexArray);
+	// 	return indexArray;
 	// },
+
 //add all even numbers squared
-	// sumOfAllEvenNumbersSquared: function (arr) {
-		
-	// }
+	sumOfAllEvenNumbersSquared: function (arr) {
+		var evenArray = [];
+		var counter = 0;
+		for(var num of arr){
+			if (num % 2 === 0){
+				evenArray.push(num);
+			}
+		}
+		console.log("evenArray array: ", evenArray);
+		var squaredArray = this.square(evenArray);
+		console.log("Squared Array: ", squaredArray);
+		for(var num of squaredArray){
+			counter += num;
+		}
+		console.log("My COUNTER", counter);
+		return counter;
+	}
 
 }
 
